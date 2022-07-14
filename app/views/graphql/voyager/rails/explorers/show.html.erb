@@ -7,7 +7,7 @@
   </head>
   <body>
     <div id="voyager">Loading...</div>
-    <script>
+    <%= javascript_tag nonce: true do %>
       function introspectionProvider(introspectionQuery) {
         return fetch('<%= graphql_endpoint_path %>', {
           method: 'post',
@@ -29,6 +29,6 @@
         introspection: introspectionProvider,
         workerURI: '<%= asset_path("graphql/voyager/rails/voyager.js") %>',
       });
-    </script>
+     <% end %>
   </body>
 </html>
